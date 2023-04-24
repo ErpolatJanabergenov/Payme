@@ -1,0 +1,20 @@
+[
+  {
+    "name": "er",
+    "username": "er",
+    "password": "er",
+    "role": "USER",
+    "id": "2800c8ef-5187-4f6e-be07-610ade8eb55b",
+    "createdDate": "Apr 24, 2023, 5:13:39 PM",
+    "updatedDate": "Apr 24, 2023, 5:13:39 PM"
+  },
+  {
+    "name": "we",
+    "username": "we",
+    "password": "we",
+    "role": "USER",
+    "id": "4e84092a-7993-4a93-916b-efc67f4b4db5",
+    "createdDate": "Apr 24, 2023, 5:19:45 PM",
+    "updatedDate": "Apr 24, 2023, 5:19:45 PM"
+  }
+]
