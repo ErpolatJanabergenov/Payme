@@ -3,7 +3,10 @@ package controller;
 import model.Card;
 import model.User;
 
+import java.util.ArrayList;
+
 import static controller.Main.*;
+
 
 public class UserUI {
     public static void userMenu(User user) {
@@ -43,6 +46,14 @@ public class UserUI {
     }
 
     private static void showCard(User user) {
+        ArrayList<Card> userCards = cardService.getUserCards(user.getId());
+        if (userCards.isEmpty()) {
+            System.out.println("Hozircha kartayngiz yo'q");
+        }
+        int i = 1;
+        for (Card userCard : userCards) {
+            System.out.println(i++ + ": " + userCard.getName() + " || " + userCard.getAmount());
+        }
 
     }
 
@@ -51,15 +62,22 @@ public class UserUI {
     }
 
     private static void P2P(User user) {
-        System.out.print("Enter card num: ");
-        String cardNum = scanStr.nextLine();
+        while (true) {
+            System.out.print("Enter card num: ");
+            String cardNum = scanStr.nextLine();
 
-        Card card = new Card(cardNum);
-        if (cardService.findByCardNum(card) == null) {
-            System.out.println("Bunaqa karta toplmadi");
+            Card card = new Card(cardNum);
+            if (cardService.findByCardNum(card) == null) {
+                System.out.println("Bunaqa karta toplmadi");
+                    continue;
+            }
+            System.out.print("Enter amount: ");
+            Double amount = scanNum.nextDouble();
+            showCard(user);
+            System.out.print("\nChoose card: ");
+            int index = scanNum.nextInt();
+
         }
-        Double amount = scanNum.nextDouble();
-
     }
 
     private static void addCard(User user) {

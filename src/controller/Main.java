@@ -73,7 +73,7 @@ public class Main {
         System.out.print("Enter password: ");
         String password = scanStr.nextLine();
         User user = new User(name,username,password,UserRole.USER);
-        User user1 = new User(name, username, password);
+
 
         if (userService.add(user) == 1) {
             System.out.println("✔✔✔✔✔");

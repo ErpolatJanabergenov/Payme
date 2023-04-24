@@ -8,6 +8,7 @@ import model.Card;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Objects;
+import java.util.UUID;
 
 public class CardRepositoryImpl implements CardRepository{
 
@@ -51,6 +52,23 @@ public class CardRepositoryImpl implements CardRepository{
     @Override
     public int p2p(Card outCard, Card inCard) {
         return 0;
+    }
+
+    @Override
+    public ArrayList<Card> getUserCards(UUID userId) {
+        ArrayList<Card> myCards = new ArrayList<>();
+        ArrayList<Card> cards;
+        try (BufferedReader bufferedReader = new BufferedReader(new FileReader(cardPath))){
+            cards = gson.fromJson(bufferedReader, new TypeToken<>(){});
+            for (Card card1 : cards) {
+                if (Objects.equals(card1.getUserId(),userId)) {
+                    myCards.add(card1);
+                }
+            }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        return myCards;
     }
 
     @Override

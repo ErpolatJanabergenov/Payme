@@ -3,6 +3,9 @@ package service.card;
 import model.Card;
 import repository.card.CardRepositoryImpl;
 
+import java.util.ArrayList;
+import java.util.UUID;
+
 public class CardServiceImpl implements CardService {
 
     private static final CardServiceImpl instance = new CardServiceImpl();
@@ -31,5 +34,10 @@ public class CardServiceImpl implements CardService {
             return card;
         }
         return null;
+    }
+
+    @Override
+    public ArrayList<Card> getUserCards(UUID userId) {
+        return cardRepository.getUserCards(userId);
     }
 }
