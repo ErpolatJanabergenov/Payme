@@ -45,16 +45,16 @@ public class UserUI {
 
     }
 
-    private static void showCard(User user) {
+    private static ArrayList<Card> showCard(User user) {
         ArrayList<Card> userCards = cardService.getUserCards(user.getId());
         if (userCards.isEmpty()) {
             System.out.println("Hozircha kartayngiz yo'q");
         }
         int i = 1;
         for (Card userCard : userCards) {
-            System.out.println(i++ + ": " + userCard.getName() + " || " + userCard.getAmount());
+            System.out.println(i++ + ": " + userCard.getName() + " || " + userCard.getBalance());
         }
-
+    return userCards;
     }
 
     private static void history(User user) {
@@ -67,15 +67,23 @@ public class UserUI {
             String cardNum = scanStr.nextLine();
 
             Card card = new Card(cardNum);
-            if (cardService.findByCardNum(card) == null) {
-                System.out.println("Bunaqa karta toplmadi");
-                    continue;
-            }
+            ArrayList<Card>  cardNum1 = cardService.findByCardNum(card);
+            int i = 1;
+            Card card2 = cardNum1.get(0);
             System.out.print("Enter amount: ");
             Double amount = scanNum.nextDouble();
-            showCard(user);
+
+            ArrayList<Card> cards = showCard(user);
             System.out.print("\nChoose card: ");
             int index = scanNum.nextInt();
+
+            Card card1 = cards.get(index - 1);
+            if (cardService.p2p(card1, card2,amount) == -1) {
+                System.out.println("Karta da mablag' yetarli emas");
+            }else {
+                System.out.println("Success");
+                return;
+            }
 
         }
     }

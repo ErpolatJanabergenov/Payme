@@ -29,15 +29,17 @@ public class CardServiceImpl implements CardService {
 
 
     @Override
-    public Card findByCardNum(Card card) {
-        if (cardRepository.findByCardNum(card) == 1) {
-            return card;
-        }
-        return null;
+    public ArrayList<Card> findByCardNum(Card card) {
+        return cardRepository.findByCardNum(card);
     }
 
     @Override
     public ArrayList<Card> getUserCards(UUID userId) {
         return cardRepository.getUserCards(userId);
+    }
+
+    @Override
+    public int p2p(Card outCard, Card inCard, Double amount) {
+        return cardRepository.p2p(outCard,inCard,amount);
     }
 }

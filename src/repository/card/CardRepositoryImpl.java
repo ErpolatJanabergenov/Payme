@@ -50,8 +50,16 @@ public class CardRepositoryImpl implements CardRepository{
 
 
     @Override
-    public int p2p(Card outCard, Card inCard) {
-        return 0;
+    public int p2p(Card outCard, Card inCard, Double amount) {
+        double v = amount + amount * 0.01;
+        if (outCard.getBalance() < v) {
+            return -1;
+        }
+        Double balance = outCard.getBalance();
+        Double balance1 = inCard.getBalance();
+        outCard.setBalance(balance - v);
+        inCard.setBalance(balance1 + v);
+        return 1;
     }
 
     @Override
@@ -72,18 +80,19 @@ public class CardRepositoryImpl implements CardRepository{
     }
 
     @Override
-    public int findByCardNum(Card card) {
+    public ArrayList<Card> findByCardNum(Card card) {
+        ArrayList<Card> cards1 = new ArrayList<>();
         ArrayList<Card> cards;
         try (BufferedReader bufferedReader = new BufferedReader(new FileReader(cardPath))){
             cards = gson.fromJson(bufferedReader, new TypeToken<>(){});
             for (Card card1 : cards) {
                 if (Objects.equals(card1.getCardNum(), card.getCardNum())) {
-                    return 1;
+                   cards1.add(card1);
                 }
             }
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        return -1;
+        return cards1;
     }
 }

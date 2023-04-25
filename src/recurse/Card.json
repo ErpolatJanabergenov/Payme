@@ -2,19 +2,19 @@
   {
     "name": "er",
     "cardNum": "er",
-    "amount": 10000.0,
+    "balance": 10000.0,
     "userId": "2800c8ef-5187-4f6e-be07-610ade8eb55b",
-    "id": "92685f1b-3add-47e7-b848-e90d2a73c4ec",
-    "createdDate": "Apr 25, 2023, 3:33:54 AM",
-    "updatedDate": "Apr 25, 2023, 3:33:54 AM"
+    "id": "b19ef94d-2692-4bd8-bc15-d142305653c2",
+    "createdDate": "Apr 25, 2023, 4:04:26 AM",
+    "updatedDate": "Apr 25, 2023, 4:04:26 AM"
   },
   {
-    "name": "we",
-    "cardNum": "we",
-    "amount": 10000.0,
-    "userId": "2800c8ef-5187-4f6e-be07-610ade8eb55b",
-    "id": "5b4a80fa-4918-44aa-80d8-f7ec1f4d7305",
-    "createdDate": "Apr 25, 2023, 3:40:50 AM",
-    "updatedDate": "Apr 25, 2023, 3:40:50 AM"
+    "name": "qw",
+    "cardNum": "qw",
+    "balance": 10000.0,
+    "userId": "4e84092a-7993-4a93-916b-efc67f4b4db5",
+    "id": "15103b29-3383-4ff4-9561-9194f0258f35",
+    "createdDate": "Apr 25, 2023, 4:05:05 AM",
+    "updatedDate": "Apr 25, 2023, 4:05:05 AM"
   }
 ]

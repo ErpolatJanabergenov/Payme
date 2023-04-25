@@ -16,7 +16,7 @@ public class Card extends BaseModel {
     private String name;
     @NonNull
     private String cardNum;
-    private Double amount;
+    private Double balance;
     private UUID userId;
 
 }
